@@ -1,0 +1,39 @@
+﻿<Window x:Class="ExemDesignPattern.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExemDesignPattern"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
+    <Grid DataContext="GeneralListFromDataBase">
+        <StackPanel>
+            <ToolBar Height="30" >
+                <Button Margin="5,0,5,0" x:Name="AddTask" Click="AddTask_Click" Content="Add TodoList"></Button>
+                <Button Margin="0,0,5,0" x:Name="Edit_Task" Click="Edit_Task_Click" Content="Edit Task" IsEnabled="False"/>
+                <Button Margin="0,0,5,0" x:Name="Delete_Task" Click="Delete_Task_Click" Content=" Delete Task" IsEnabled="False"/>
+                <Button Margin="0,0,5,0" x:Name="ReadfromPdf" Click="ReadfromPdf_Click" Content="Load from Pdf"/>
+                <Button Margin="0,0,5,0" x:Name="Write_task_List" Click="Write_task_List_Click" Content="Save as file"/>
+                <Button Margin="0,0,5,0" x:Name="Search" Click="Search_Click" Content="Searching window" />
+                <Button Margin="0,0,5,0" x:Name="CleareactiveList" Content="Delete Todo List" Click="CleareactiveList_Click"/>
+                <Button Margin="0,0,5,0" x:Name="CleareHisr" Content="Clear history" Click="CleareHisr_Click"/>
+                <Button Margin="0,0,5,0" x:Name="TodoListOfToday" Content="Today Todo List" Click="TodoListOfToday_Click" />
+            </ToolBar>
+            <ListView x:Name="elem" SelectionChanged="elem_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel Margin="5">
+                            <CheckBox Margin="5,5,10,5" IsChecked="{Binding Finished, Mode=TwoWay}"/>
+                            <TextBlock Text="{Binding Name}" Margin="0,5,10,5"/>
+                            <TextBlock Text="{Binding Description}" Margin="0,5,10,5"/>
+                            <TextBlock Text="{Binding Prioriti}" Margin="0,5,10,5"/>
+                            <TextBlock Text="{Binding Tag }" Margin="0,5,10,5"/>
+                            <TextBlock Text="{Binding DueTo ,StringFormat=d}" Margin="0,5,10,5"/>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        
+    </Grid>
+</Window>

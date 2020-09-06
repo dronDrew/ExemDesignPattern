@@ -1,0 +1,25 @@
+﻿<Window x:Class="ExemDesignPattern.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExemDesignPattern"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="EditWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel x:Name="MainPanel">
+            <Label x:Name="Labname" Content="Enter new Name"/>
+            <TextBox x:Name="TaskName" Text="{Binding Name}"/>
+            <Label x:Name="LabDecs" Content="Enter new Description"/>
+            <TextBox x:Name="Desc" Text="{Binding Description }"/>
+            <Label x:Name="LabPrior" Content="Put new Priority level"/>
+            <xctk:IntegerUpDown x:Name="PriorRate" ClipValueToMinMax="True" ClipToBounds="True" Maximum="5" Minimum="0" Value="{Binding Prioriti}"/>
+            <Label x:Name="LabTag" Content="Enter new Tag"/>
+            <TextBox x:Name="TagInfo" Text="{Binding Tag }"/>
+            <Label x:Name="LabTime" Content="Enter new Date Due"/>
+            <DatePicker Name="Dateinfo" SelectedDateFormat="{Binding DueTo}"/>
+            <Button Content="Renew Info" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

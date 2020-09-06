@@ -1,0 +1,75 @@
+﻿<Window x:Class="ExemDesignPattern.SearchingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:ExemDesignPattern"
+        mc:Ignorable="d"
+        Title="SearchingWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0" Grid.Column="0">
+            <StackPanel>    
+                <Label Margin="50,5,5,5"> By name </Label>
+                <TextBox x:Name="KeywordName"></TextBox>
+                <RadioButton x:Name="NameInHist" Checked="NameInHist_Checked">Search in History</RadioButton>
+                <RadioButton x:Name="NameInActive" Checked="NameInActive_Checked">Search in Current Todo List</RadioButton>
+                <Button IsEnabled="False" Name="NameSearch" Click="NameSearch_Click">Go</Button>
+            </StackPanel>
+        </WrapPanel>
+        <WrapPanel Grid.Row="0" Grid.Column="1">
+            <StackPanel>
+                <Label Margin="50,5,5,5"> By Description</Label>
+                <TextBox x:Name="KeywordDesc"></TextBox>
+                <RadioButton x:Name="DescInHist">Search in History</RadioButton>
+                <RadioButton x:Name="DescInActive">Search in Current Todo List</RadioButton>
+                <Button IsEnabled="False" Name="DescSearch">Go</Button>
+            </StackPanel>
+        </WrapPanel>
+        <WrapPanel Grid.Row="1" Grid.Column="0">
+            <StackPanel>
+                <Label Margin="50,5,5,5">By Tag</Label>
+                <TextBox x:Name="KeywordTag"></TextBox>
+                <RadioButton x:Name="TagInHist">Search in History</RadioButton>
+                <RadioButton x:Name="TagInActive">Search in Current Todo List</RadioButton>
+                <Button IsEnabled="False" Name="TagSearch">Go</Button>
+            </StackPanel>
+        </WrapPanel>
+        <WrapPanel Grid.Row="1" Grid.Column="1">
+            <StackPanel>
+                <Label Margin="50,5,5,5">By Priority</Label>
+                <xctk:IntegerUpDown x:Name="KeywordPriorRate" ClipValueToMinMax="True" ClipToBounds="True" Maximum="5" Minimum="0" Value="{Binding Prioriti}"/>
+                <RadioButton x:Name="KeyPriorInHist">Search in History</RadioButton>
+                <RadioButton x:Name="KeyPriorInActive">Search in Current Todo List</RadioButton>
+                <Button IsEnabled="False" Name="PriorSearch">Go</Button>
+            </StackPanel>
+        </WrapPanel>
+        <WrapPanel Grid.Row="2" Grid.Column="0">
+            <StackPanel>
+                <Label Margin="50,5,5,5">By status</Label>
+                <RadioButton x:Name="FinishedInHistory">Finished</RadioButton>
+                <RadioButton x:Name="NotFinishedInHistory">Not Finished</RadioButton>
+                <Button IsEnabled="False" Name="StatusSearch">Go</Button>
+            </StackPanel>
+        </WrapPanel>
+        <WrapPanel Grid.Row="2" Grid.Column="1">
+            <StackPanel>
+                <Label Margin="50,5,5,5">By Date</Label>
+                <RadioButton x:Name="KeyDateInHist">Search in History</RadioButton>
+                <RadioButton x:Name="KeyDateInActive">Search in Current Todo List</RadioButton>
+                <DatePicker Name="KeyDate"></DatePicker>
+                <Button IsEnabled="False" Name="DateSearch">Go</Button>
+            </StackPanel>
+        </WrapPanel>
+
+    </Grid>
+</Window>
